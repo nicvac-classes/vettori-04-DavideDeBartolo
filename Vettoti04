@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
+
+int main() {
+    int N;
+    std::cout << "Inserisci il numero di elementi nel vettore: ";
+    std::cin >> N;
+
+    std::vector<int> V(N);
+    std::srand(std::time(0));
+
+    int countPari = 0;
+    int minVal = 1001, maxVal = -1;
+    int minPos = -1, maxPos = -1;
+
+    for (int i = 0; i < N; ++i) {
+        V[i] = std::rand() % 1001;
+        if (V[i] % 2 == 0) {
+            countPari++;
+        }
+        if (V[i] < minVal) {
+            minVal = V[i];
+            minPos = i;
+        }
+        if (V[i] > maxVal) {
+            maxVal = V[i];
+            maxPos = i;
+        }
+    }
+
+    
